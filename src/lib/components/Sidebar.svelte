@@ -12,10 +12,11 @@
     Building2,
     Menu,
     X,
+    ListTodo,
   } from "lucide-svelte";
-
+ 
   let isMobileOpen = $state(false);
-
+ 
   const links = [
     { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
     { href: "/asistencia", label: "Asistencia", icon: UserCheck },
@@ -23,6 +24,7 @@
     { href: "/administrativos", label: "Administrativos", icon: Users },
     { href: "/trabajos", label: "Trabajos Diarios", icon: Briefcase },
     { href: "/ordenes", label: "Órdenes Trabajo", icon: FileText },
+    { href: "/actividades", label: "Actividades", icon: ListTodo },
   ];
 
   function logout() {
