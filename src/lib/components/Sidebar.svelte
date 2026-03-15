@@ -112,13 +112,11 @@
       </div>
     </div>
 
-    <!-- Navigation -->
     <nav class="flex-1 space-y-1 px-2 py-4 overflow-y-auto">
       {#each links.filter((l) => {
         if (authState.user?.role === "supervisor") {
           return !["Administrativos", "Órdenes Trabajo", "Empleados"].includes(l.label);
         }
-
         return true;
       }) as link}
         {@const isActive = page.url.pathname.startsWith(link.href)}
@@ -137,6 +135,21 @@
           <span class="truncate">{link.label}</span>
         </a>
       {/each}
+      
+      {#if authState.user?.role === "admin"}
+        <a
+          href="/usuarios"
+          class={`group flex items-center px-3 py-3 text-sm font-medium rounded-md transition-all ${
+            page.url.pathname.startsWith("/usuarios")
+              ? "bg-blue-600 text-white shadow-md"
+              : "text-gray-300 hover:bg-slate-800 hover:text-white"
+          }`}
+          onclick={() => (isMobileOpen = false)}
+        >
+          <Users class={`mr-3 h-5 w-5 shrink-0 transition-colors ${page.url.pathname.startsWith("/usuarios") ? "text-white" : "text-gray-400 group-hover:text-white"}`} />
+          <span class="truncate">Gestión de Usuarios</span>
+        </a>
+      {/if}
     </nav>
 
     <!-- Footer / Logout -->
