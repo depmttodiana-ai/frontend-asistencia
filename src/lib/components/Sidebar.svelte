@@ -19,6 +19,7 @@
  
   const links = [
     { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { href: "/perfil", label: "Mi Perfil", icon: UserCheck },
     { href: "/asistencia", label: "Asistencia", icon: UserCheck },
     { href: "/empleados", label: "Empleados", icon: Users },
     { href: "/administrativos", label: "Administrativos", icon: Users },

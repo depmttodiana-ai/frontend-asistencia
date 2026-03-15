@@ -10,6 +10,7 @@ import api from '$lib/api';
 export interface User {
   username: string;
   role: 'admin' | 'coordinador' | 'supervisor';
+  email?: string;
   exp?: number;
 }
 
@@ -37,7 +38,8 @@ class AuthState {
                 const decoded: any = jwtDecode(this.token);
                 this.user = {
                   username: decoded.sub || 'Usuario',
-                  role: decoded.role || 'supervisor'
+                  role: decoded.role || 'supervisor',
+                  email: decoded.email || undefined
                 };
               } catch (e) {
                 this.logout();
@@ -95,7 +97,8 @@ class AuthState {
         // Asignar datos del usuario desde el token o respuesta
         this.user = {
           username: decoded.sub || username,
-          role: response.data.role || decoded.role || 'supervisor'
+          role: response.data.role || decoded.role || 'supervisor',
+          email: response.data.email || undefined
         };
         
         // Redireccionar al dashboard

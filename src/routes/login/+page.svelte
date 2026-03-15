@@ -91,6 +91,12 @@
             {/if}
           </button>
         </div>
+
+        <div class="text-sm text-center mt-4">
+          <a href="/forgot-password" class="font-medium text-blue-600 hover:text-blue-500">
+            ¿Olvidaste tu contraseña?
+          </a>
+        </div>
       </form>
     </div>
   </div>
